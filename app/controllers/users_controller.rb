@@ -4,7 +4,13 @@ class UsersController < ApplicationController
         user = User.find(5)
         events = user.events
 
-        render :json => events
+        events_hash = {}
+        events.each do |event|
+            events_hash[event.id] = event
+        end
+
+        render :json => events_hash
+
     end
 
 end

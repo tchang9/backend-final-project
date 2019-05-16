@@ -8,7 +8,12 @@ class EventsController < ApplicationController
         event = Event.find(event_topics_params["id"])
         topics = event.topics
 
-        render :json => topics   
+        topics_hash = {}
+        topics.each do |topic|
+            topics_hash[topic.id] = topic
+        end
+
+        render :json => topics_hash   
     end
 
     private
