@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :topics, only: [:create]
+
+  get "/events", to: "users#user_events"
+  post "/fetch-topics", to: "events#event_topics"
+  post "/comments", to: "topics#topic_comments"
 end
