@@ -11,3 +11,9 @@ User.create(first_name: "Dragon", last_name: "Queen", email: "fakequeen@hotmail.
 
 Event.create(name: "Korea 12/19", start_date: Date.yesterday, end_date: Date.tomorrow, location: "Korea")
 Event.create(name: "Kevin's Wedding", start_date: Date.yesterday, end_date: Date.tomorrow, location: "Taiwan")
+
+Topic.create(label: "Dinner Plans", event_id: 5)
+Topic.create(label: "Gift Ideas", event_id: 5)
+
+Comment.create(comment: "Water Bottle", topic_id: 1, user_id: 5)
+Comment.create(comment: "Computer", topic_id: 1, user_id: 5)
