@@ -16,6 +16,13 @@ class EventsController < ApplicationController
         render :json => topics_hash   
     end
 
+    def event_activities
+        event = Event.find(params["id"])
+        activities = event.activities
+
+        render :json => activities
+    end
+
     private
 
     def event_topics_params

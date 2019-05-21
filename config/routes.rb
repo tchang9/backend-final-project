@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get "/events", to: "users#user_events"
   post "/fetch-topics", to: "events#event_topics"
   post "/fetch-comments", to: "topics#topic_comments"
+  post "/fetch-activities", to: "events#event_activities"
 end
