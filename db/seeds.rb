@@ -17,3 +17,9 @@ Topic.create(label: "Gift Ideas", event_id: 5)
 
 Comment.create(comment: "Water Bottle", topic_id: 1, user_id: 5)
 Comment.create(comment: "Computer", topic_id: 1, user_id: 5)
+
+Activity.create(name: "KBBQ", start_time: "6:00pm", end_time: "8:00pm", date: Date.tomorrow, description: "Pork Belly Please!", event_id: 6)
+
+Activity.create(name: "Clubbing", start_time: "9:00pm", end_time: "11:00pm", date: Date.today, description: "Clubbsss", event_id: 5)
+
+Activity.create(name: "Shopping", start_time: "3:00pm", end_time: "4:00pm", date: Date.tomorrow, description: "Need more clothes", event_id: 5)
