@@ -13,7 +13,6 @@ class TopicsController < ApplicationController
     end
 
     def create 
-        # byebug
         topic = Topic.create(event_id: params["id"], label: params["topicName"])
         # TODO- change the hard coded USER to CURRENT USER
         comment = Comment.create(comment: params["comment"], topic_id: topic.id, user_id: 5)
