@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
     def user_events
-        user = User.find(5)
+        user = curr_user
         events = user.events
 
         events_hash = {}
@@ -15,8 +15,8 @@ class UsersController < ApplicationController
 
     def create
 		user = User.new(
-			first_name: params[:first_name],
-			last_name: params[:last_name],
+			first_name: params[:firstName],
+			last_name: params[:lastName],
             email: params[:email],
             password: params[:password],
             profile_picture: ""

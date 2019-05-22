@@ -6,4 +6,11 @@ class ActivitiesController < ApplicationController
 
         render :json => activity
     end
+
+    def update
+        activity = Activity.find(params["id"])
+        activity.update(name: params["name"], start_time: params["startTime"], end_time: params["endTime"], description: params["description"], date: params["date"])
+
+        render :json => activity
+    end
 end
