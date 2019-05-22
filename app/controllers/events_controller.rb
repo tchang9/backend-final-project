@@ -23,6 +23,13 @@ class EventsController < ApplicationController
         render :json => activities
     end
 
+    def update
+        event = Event.find(params["id"])
+        event.update(name: params["name"], location: params["location"], start_date: params["startDate"], end_date: params["endDate"])
+
+        render :json => event
+    end
+
     private
 
     def event_topics_params
