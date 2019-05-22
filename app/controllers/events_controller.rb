@@ -4,6 +4,15 @@ class EventsController < ApplicationController
         
     end
 
+    def create
+        event = Event.create(name: params["name"], start_date: params["startDate"], end_date: params["endDate"], location: params["location"])
+        user = curr_user
+        user.events.push(event)
+
+        render :json => event
+
+    end
+
     def event_topics
         event = Event.find(event_topics_params["id"])
         topics = event.topics
