@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users, only: [:create] #sign up
   resources :comments, only: [:create]
   resources :activities, only: [:create, :update]
+  resources :events, only: [:create, :update]
   
   post '/login', to: 'auth#login' #sign in 
   get '/profile', to: 'users#profile' #profile
