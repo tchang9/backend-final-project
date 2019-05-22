@@ -14,8 +14,7 @@ class TopicsController < ApplicationController
 
     def create 
         topic = Topic.create(event_id: params["id"], label: params["topicName"])
-        # TODO- change the hard coded USER to CURRENT USER
-        comment = Comment.create(comment: params["comment"], topic_id: topic.id, user_id: 5)
+        comment = Comment.create(comment: params["comment"], topic_id: topic.id, user_id: curr_user.id)
         topic.comments.push(comment)
 
         render :json => topic
