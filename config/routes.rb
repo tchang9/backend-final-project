@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   post "/fetch-topics", to: "events#event_topics"
   post "/fetch-comments", to: "topics#topic_comments"
   post "/fetch-activities", to: "events#event_activities"
+
+  post "/join-event/:id", to: "events#join_event"
 end

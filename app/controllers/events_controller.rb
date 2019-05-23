@@ -39,6 +39,24 @@ class EventsController < ApplicationController
         render :json => event
     end
 
+    def join_event
+        event = Event.find(params["id"])
+
+
+        if curr_user
+            if curr_user.events.include?(event)
+                render :json => {message: "Already joined the event"}
+            else
+                curr_user.events.push(event)
+                render :json => {message: "Redirect to events"}
+            end
+        else
+            #sending the event back to redirect them to the login page
+            render :json => event
+        end
+
+    end
+
     private
 
     def event_topics_params
