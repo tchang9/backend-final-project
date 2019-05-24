@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   post "/fetch-activities", to: "events#event_activities"
 
   post "/join-event/:id", to: "events#join_event"
+  post 'fetch-event-users', to: "events#event_users"
 end

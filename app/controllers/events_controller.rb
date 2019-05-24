@@ -1,9 +1,5 @@
 class EventsController < ApplicationController
 
-    def index
-        
-    end
-
     def create
         event = Event.create(name: params["name"], start_date: params["startDate"], end_date: params["endDate"], location: params["location"])
         user = curr_user
@@ -56,6 +52,18 @@ class EventsController < ApplicationController
         end
 
     end
+
+    def event_users
+        event = Event.find(params["eventId"])
+        event_users = event.users
+
+        event_users_hash = {}
+        event_users.each do |user|
+            event_users_hash[user.id] = user
+        end
+
+        render :json => event_users_hash
+    end 
 
     private
 
