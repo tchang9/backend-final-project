@@ -65,6 +65,18 @@ class EventsController < ApplicationController
         render :json => event_users_hash
     end 
 
+    def destroy
+        event = Event.find(params["id"])
+        event.topics.each do |topic|
+            topic.comments.destroy_all
+        end
+
+        event.topics.destroy_all
+        event.destroy
+
+        render :json => event.id
+    end
+
     private
 
     def event_topics_params

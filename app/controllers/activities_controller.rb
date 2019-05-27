@@ -13,4 +13,11 @@ class ActivitiesController < ApplicationController
 
         render :json => activity
     end
+
+    def destroy
+        activity = Activity.find(params["id"])
+        activity.destroy
+
+        render :json => activity.id
+    end
 end

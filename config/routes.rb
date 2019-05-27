@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   resources :topics, only: [:create]
   resources :users, only: [:create] #sign up
   resources :comments, only: [:create]
-  resources :activities, only: [:create, :update]
-  resources :events, only: [:create, :update]
+  resources :activities, only: [:create, :update, :destroy]
+  resources :events, only: [:create, :update, :destroy]
   
   post '/login', to: 'auth#login' #sign in 
   get '/profile', to: 'users#profile' #profile
