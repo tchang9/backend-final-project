@@ -9,6 +9,12 @@ class EventsController < ApplicationController
 
     end
 
+    def show 
+        event = Event.find(params["id"])
+
+        render :json => event
+    end
+
     def event_topics
         event = Event.find(event_topics_params["id"])
         topics = event.topics
@@ -38,11 +44,13 @@ class EventsController < ApplicationController
     def join_event
         event = Event.find(params["id"])
 
-
+        # if someone is logged in:
         if curr_user
+            # check if they are already part of the event
             if curr_user.events.include?(event)
                 render :json => {message: "Already joined the event"}
             else
+            # if they are not part of the event, add them to the event
                 curr_user.events.push(event)
                 render :json => {message: "Redirect to events"}
             end
