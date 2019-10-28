@@ -21,11 +21,13 @@ class UsersController < ApplicationController
             password: params[:password],
             profile_picture: ""
 		)
-		if user.save
+        if user.save
 			token = encode_token(user.id)
 
+            puts user
+            puts 11111111111111111111111111111111111111111111
             render json: {user: UserSerializer.new(user), token: token}
-		else
+        else
 			render json: {errors: user.errors.full_messages}
         end
     end
